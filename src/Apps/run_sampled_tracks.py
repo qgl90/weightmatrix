@@ -25,6 +25,9 @@ from Utils.Logger import Logger
 from Settings.Settings import load_settings
 from Core.MomentumResolutionCalculator import MomentumResolutionCalculator
 from weightmatrix.config import Settings
+from Apps.plot_detector_layout import plot_detector_layout
+from Apps.plot_bfield_scan import plot_bfield_z_scan
+from Apps.plot_example_trajectory import plot_example_trajectory
 
 from argparse import ArgumentParser
 if __name__ == "__main__":
@@ -36,6 +39,7 @@ if __name__ == "__main__":
     arg_.add_argument("--output_file", default="test.root", help="Path to the output file")    
     arg_.add_argument("--start_entry",type = int, default = 0, help="Number of events to run")        
     arg_.add_argument("--stop_entry",type = int, default = 1000, help="Number of events to run")        
+    arg_.add_argument("--no_dump_plots", action="store_true", help="Disable diagnostic plot dumps (layout, field scan, example trajectory)")
     args = arg_.parse_args()
     
     Logger.info("Loading settings and kinematic file")
@@ -85,6 +89,42 @@ if __name__ == "__main__":
     df = pd.read_parquet(kinematic_file)
     df["M1_CHARGE"] = df["M1_ID"].apply(lambda x : -1 if x > 0 else +1 )
     df["M2_CHARGE"] = df["M2_ID"].apply(lambda x : -1 if x > 0 else +1 )    
+
+    dump_plots = not args.no_dump_plots
+    if dump_plots:
+        chunk_tag = f"{start_entry}_{stop_entry}"
+        try:
+            plot_detector_layout(args.settings_file, f"outputs/layout_{chunk_tag}.png")
+        except Exception as e:
+            Logger.warning(f"Failed to dump layout plot: {e}")
+        try:
+            plot_bfield_z_scan(args.settings_file, f"outputs/bfield_zscan_{chunk_tag}.png", x_mm=0.0, y_mm=0.0, n=400)
+        except Exception as e:
+            Logger.warning(f"Failed to dump B-field scan plot: {e}")
+        try:
+            entry0 = df.iloc[start_entry]
+            mu_px = float(entry0["M1_PX"])
+            mu_py = float(entry0["M1_PY"])
+            mu_pz = float(entry0["M1_PZ"])
+            mu_e = float(entry0["M1_ENERGY"])
+            mu_charge = int(entry0["M1_CHARGE"])
+            mu_ovtx_x = float(entry0["M1_TRUEORIGINVERTEX_X"])
+            mu_ovtx_y = float(entry0["M1_TRUEORIGINVERTEX_Y"])
+            mu_ovtx_z = float(entry0["M1_TRUEORIGINVERTEX_Z"])
+            mu_vect = TLorentzVector()
+            mu_vect.SetPxPyPzE(mu_px, mu_py, mu_pz, mu_e)
+
+            zvals = [float(p.Z) for p in CalculatorResolution.planes]
+            plot_example_trajectory(
+                settings=settings_confs,
+                fourvector=mu_vect,
+                charge=mu_charge,
+                origin_position=(mu_ovtx_x, mu_ovtx_y, mu_ovtx_z),
+                out_png=f"outputs/trajectory_{chunk_tag}.png",
+                z_values_mm=sorted(set(zvals)),
+            )
+        except Exception as e:
+            Logger.warning(f"Failed to dump example trajectory plot: {e}")
     
     tot_loops = stop_entry - start_entry
     import numpy as np 
