@@ -1,0 +1,28 @@
+pmin: 2000.0
+pmax: 80000.0
+# number of steps to take in the sampling of the B field from a min-z to a max-z (last collection plane)
+steps: 100
+# where to pickle the xyshapes to use in the track sampling
+path_geom_pickle: "Geometries"
+detectionlayers:
+  # - detector/magnet/steps.csv
+  # - detector/upstream/up.csv
+  - detector/downstream/down_scenario_Uli_302.csv
+fieldMap      :  field/Bfield_Dump_LHCb_dddb-20200508_sim-20200515-vc-md100.csv
+# gdmlInput     :  gdmls/LHCb_23Jan2026_run5_proto-v00.03.gdml
+gdmlInput     :  gdmls/proto_v00_03.root
+storing_planes:  detector/collectionplanes/collectingplanes.csv
+useGDML:    true
+skipVelo:   true
+skipRICH1:  false
+skipUT:     true
+skipFT:     true
+skipWorld:  true
+fieldShrinkFactor: 1.0
+fieldMagFactor:    1.0
+correctSciFiAngles: true
+correctUTInnerResolution: true
+VeloMeasurementsFromGDML: true
+UPMeasurementsFromGDML: true
+DownMeasurementsFromGDML: false
+useHelium: false

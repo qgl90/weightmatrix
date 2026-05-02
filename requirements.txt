@@ -1,0 +1,14 @@
+numpy
+pandas
+pyarrow
+pyyaml
+termcolor
+prettytable
+alive-progress
+
+# Optional (used by plotting helpers / notebooks)
+matplotlib
+seaborn
+
+# Dev/test
+pytest

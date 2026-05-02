@@ -1,0 +1,47 @@
+Use,Z,thickness,sigmaX,sigmaY,angle,xyshape,hiteff
+1,7826.1,0.012,0.140,,0.,Blake_Fibre_x,1.0
+1,7895.9,0.012,0.140,,5.0,Blake_Fibre_u,1.0
+1,7966.1,0.012,0.140,,-5.0,Blake_Fibre_v,1.0
+1,8035.9,0.012,0.140,,0.,Blake_Fibre_x,1.0
+# Sci-Fi T2
+1,8507.1,0.012,0.140,,0.,Blake_Fibre_x,1.0
+1,8576.9,0.012,0.140,,5.0,Blake_Fibre_u,1.0
+1,8647.1,0.012,0.140,,-5.0,Blake_Fibre_v,1.0
+1,8716.9,0.012,0.140,,0.,Blake_Fibre_x,1.0
+# Sci-Fi T3
+1,9192.1,0.012,0.140,,0.,Blake_Fibre_x,1.0
+1,9261.9,0.012,0.140,,5.0,Blake_Fibre_u,1.0
+1,9332.1,0.012,0.140,,-5.0,Blake_Fibre_v,1.0
+1,9401.9,0.012,0.140,,0.,Blake_Fibre_x,1.0
+
+#MP T1 3 planes + Passive service (3 plane 3.35% budget in 3 slabs)
+1,7713.5,0.01535,0.01443,0.0433,0,Blake_Pixel_x,1.0
+1,7668.5,0.01535,0.01443,0.0433,0,Blake_Pixel_x,1.0
+1,7758.5,0.01535,0.01443,0.0433,0,Blake_Pixel_x,1.0
+1,7708.5,0.0117,,,,Blake_Fibre_x,1.0
+1,7663.5,0.0117,,,,Blake_Fibre_x,1.0
+1,7753.5,0.0117,,,,Blake_Fibre_x,1.0
+
+#MP T3 2 plane + Passive service (2 planes - split in 2 passive)
+1,9055.5,0.0172,0.01443,0.0433,0,Blake_Pixel_x,1.0
+1,9115.5,0.0172,0.01443,0.0433,0,Blake_Pixel_x,1.0
+1,9050.5,0.0135,,,,Blake_Fibre_x,1.0
+1,9110.5,0.0135,,,,Blake_Fibre_x,1.0
+
+
+
+# Sci-Fi T1
+# 1,7853.5,0.012,0.140,,0.,Blake_Fibre_x,1.0
+# 1,7898.5,0.012,0.140,,5.0,Blake_Fibre_u,1.0
+# 1,7983.5,0.012,0.140,,-5.0,Blake_Fibre_v,1.0
+# 1,8028.5,0.012,0.140,,0.,Blake_Fibre_x,1.0
+# # Sci-Fi T2
+# 1,8445.5,0.012,0.140,,0.,Blake_Fibre_x,1.0
+# 1,8490.5,0.012,0.140,,5.0,Blake_Fibre_u,1.0
+# 1,8575.5,0.012,0.140,,-5.0,Blake_Fibre_v,1.0
+# 1,8620.5,0.012,0.140,,0.,Blake_Fibre_x,1.0
+# # Sci-Fi T3
+# 1,9037.5,0.012,0.140,,0.,Blake_Fibre_x,1.0
+# 1,9082.5,0.012,0.140,,5.0,Blake_Fibre_u,1.0
+# 1,9167.5,0.012,0.140,,-5.0,Blake_Fibre_v,1.0
+# 1,9212.5,0.012,0.140,,0.,Blake_Fibre_x,1.0

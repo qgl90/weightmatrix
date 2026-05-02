@@ -1,0 +1,35 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  smoke-100-events:
+    runs-on: ubuntu-latest
+    container:
+      image: rootproject/root:6.30.06-ubuntu22.04
+    defaults:
+      run:
+        shell: bash
+        working-directory: .
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Python info
+        run: |
+          python3 --version
+
+      - name: Install Python deps
+        run: |
+          python3 -m ensurepip --upgrade || true
+          python3 -m pip install --upgrade pip
+          python3 -m pip install -r requirements.txt
+
+      - name: Run smoke test (100 events)
+        env:
+          PYTHONPATH: ${{ github.workspace }}/src
+        run: |
+          pytest -q
+

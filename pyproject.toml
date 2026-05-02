@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "weightmatrix-upgrade2"
+version = "0.1.0"
+description = "Momentum resolution calculator (Billoir-style) with GDML/ROOT material navigation and CSV-defined detector layers."
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+  "numpy",
+  "pandas",
+  "pyarrow",
+  "pyyaml",
+  "termcolor",
+  "prettytable",
+  "alive-progress",
+]
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]

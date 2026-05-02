@@ -1,0 +1,14 @@
+Use,Z,name,type
+#Default track state locations for LHCb Tracks, in mm 
+1,  770.0,EndVelo   , any
+1,  990.0,BegRich1  , any
+1,  1577.5,MidRich1 , any
+1,  2165.0,EndRich1 , any
+1,  2700.0,EndUT    , any
+1,  7500.0,BegT     , any
+1,  9410.0,EndT     , any
+1,  9450.0,BegRich2 , any
+1,  10675.0,MidRich2, any
+1,  11900.0,EndRich2, any
+#0,  12520.0,BegCalo , any
+#0,  15090.0,BegMuon , any
