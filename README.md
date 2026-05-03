@@ -1,6 +1,6 @@
-# weightmatrix-upgrade2 (standalone copy)
+# Weightmatrix estimator of resolutions along tracks
 
-This folder is a repo-ready copy of the original `weightmatrix_upgrade2` workspace, intended to be used later as a standalone GitHub project.
+The code uses the weight formalism to evaluate what the kalman filter for tracks would do in the transport of tracks in a generic 3D magnetic field, in presence of measurements with specific position resolutions and material budget. It also navigates existing materials from full geometries to identify for a projectile tracks the amount of crossed material and introduce noise terms to resolutions. The tracks states are expressed in (x,y,tx,ty,q/p) as in LHCb experiment for a forward tracker layout. Planes and states are defined at specific z locations. Custom acceptance masks and layouts can be parametrically injected with csv tables inputs.
 
 ## What it does
 
