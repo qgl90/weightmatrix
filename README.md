@@ -7,7 +7,7 @@ This folder is a repo-ready copy of the original `weightmatrix_upgrade2` workspa
 - Loads a **B-field map** (CSV grid) and interpolates `Bx/By/Bz`.
 - Loads a **detector layout** from one or more CSV files (planes with material + optional measurement resolutions).
 - Optionally navigates a **GDML / ROOT TGeo** geometry to add passive material (and some measurement proxies) along track steps.
-- Runs a Billoir-style propagation / multiple-scattering model to estimate **momentum resolution** and writes results to a ROOT `TNtuple`.
+- Runs a parabolic propagation and multiple-scattering model to estimate **momentum resolution** and writes results to a ROOT `TNtuple`.
 
 ## Quick start (local)
 
